@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Salchipapas Express SMCSN</title>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="hero">
+
+        <nav class="navbar">
+
+            <div class="brand">
+
+                <div class="brand-logo">
+                    S
+                </div>
+
+                <div>
+                    <strong>Salchipapas Express</strong>
+                    <span>SMC · CSN</span>
+                </div>
+
+            </div>
+
+            <a href="#pedido" class="nav-button">
+                Hacer pedido
+            </a>
+
+        </nav>
+
+
+        <div class="hero-content">
+
+            <p class="eyebrow">
+                SMC · CSN
+            </p>
+
+            <h1>
+                Salchipapas
+                <br>
+                <span>Express</span>
+            </h1>
+
+            <p class="hero-description">
+                Sabor, variedad y rapidez en un solo lugar.
+            </p>
+
+            <a href="#menu" class="main-button">
+                Ver menú
+            </a>
+
+        </div>
+
+    </header>
+
+
+    <!-- ================= MENÚ ================= -->
+
+    <main>
+
+        <section id="menu" class="menu-section">
+
+            <div class="section-header">
+
+                <div>
+
+                    <p class="eyebrow">
+                        Nuestro menú
+                    </p>
+
+                    <h2>
+                        Elige tus favoritos
+                    </h2>
+
+                </div>
+
+                <p>
+                    Haz clic en cualquier producto
+                    para conocer sus ingredientes.
+                </p>
+
+            </div>
+
+
+            <!-- Categorías -->
+
+            <div class="categories">
+
+                <button class="category active" data-category="todos">
+                    Todo
+                </button>
+
+                <button class="category" data-category="salchipapas">
+                    Salchipapas
+                </button>
+
+                <button class="category" data-category="bebidas">
+                    Bebidas
+                </button>
+
+                <button class="category" data-category="jugos">
+                    Jugos
+                </button>
+
+                <button class="category" data-category="extras">
+                    Extras
+                </button>
+
+            </div>
+
+
+            <!-- Productos -->
+
+            <div id="menuGrid" class="products-grid"></div>
+
+        </section>
+
+
+
+        <!-- ================= PEDIDO ================= -->
+
+        <section id="pedido" class="order-section">
+
+            <div class="order-container">
+
+                <div class="order-title">
+
+                    <p class="eyebrow">
+                        Tu pedido
+                    </p>
+
+                    <h2>
+                        Arma tu orden
+                    </h2>
+
+                    <p>
+                        Selecciona tus productos y coloca
+                        el nombre de la persona que realiza
+                        el pedido.
+                    </p>
+
+                </div>
+
+
+                <div class="order-card">
+
+
+                    <!-- Nombre -->
+
+                    <div class="customer">
+
+                        <label for="customerName">
+                            Nombre de la persona
+                        </label>
+
+                        <input
+                            type="text"
+                            id="customerName"
+                            placeholder="Ej. Stephany Ortiz"
+                        >
+
+                    </div>
+
+
+                    <!-- Carrito -->
+
+                    <div id="cartItems" class="cart">
+
+                        <div class="empty-cart">
+
+                            <span>
+                                🛒
+                            </span>
+
+                            <p>
+                                Aún no has agregado productos.
+                            </p>
+
+                            <small>
+                                Regresa al menú y selecciona
+                                lo que deseas.
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Total -->
+
+                    <div class="total">
+
+                        <span>
+                            Total
+                        </span>
+
+                        <strong id="total">
+                            $0.00
+                        </strong>
+
+                    </div>
+
+
+                    <!-- Botones -->
+
+                    <div class="order-buttons">
+
+                        <button
+                            id="clearBtn"
+                            class="secondary-button"
+                        >
+                            Vaciar pedido
+                        </button>
+
+                        <button
+                            id="emailBtn"
+                            class="main-button"
+                        >
+                            Enviar pedido por correo
+                        </button>
+
+                    </div>
+
+
+                    <p class="email-note">
+                        El pedido se preparará automáticamente
+                        para enviarlo por correo.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <div>
+
+            <strong>
+                Salchipapas Express SMCSN
+            </strong>
+
+            <span>
+                Sabor que llega rápido.
+            </span>
+
+        </div>
+
+        <p>
+            © 2026 Salchipapas Express SMCSN
+        </p>
+
+    </footer>
+
+
+
+    <!-- ================= MODAL ================= -->
+
+    <div
+        id="productModal"
+        class="modal hidden"
+    >
+
+        <div
+            class="modal-background"
+            data-close-modal
+        ></div>
+
+
+        <div class="modal-card">
+
+            <button
+                class="close-modal"
+                data-close-modal
+            >
+                ×
+            </button>
+
+
+            <div
+                id="modalIcon"
+                class="modal-icon"
+            >
+                🍟
+            </div>
+
+
+            <p
+                id="modalCategory"
+                class="eyebrow"
+            ></p>
+
+
+            <h3 id="modalTitle"></h3>
+
+
+            <p
+                id="modalDescription"
+                class="modal-description"
+            ></p>
+
+
+            <h4>
+                Ingredientes
+            </h4>
+
+
+            <ul
+                id="modalIngredients"
+                class="ingredients"
+            ></ul>
+
+
+            <div class="modal-bottom">
+
+                <strong id="modalPrice">
+                    $0.00
+                </strong>
+
+                <button
+                    id="modalAdd"
+                    class="main-button"
+                >
+                    Agregar al pedido
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- JavaScript -->
+
+    <script src="script.js"></script>
+
+</body>
+</html>
